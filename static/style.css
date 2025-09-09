@@ -1,0 +1,24 @@
+.main{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+h1{
+    margin: 10px;
+}
+p{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.add {
+    display: flex;
+    justify-content: center;
+}
+
+.remove {
+    display: flex;
+    justify-content: center;
+}
