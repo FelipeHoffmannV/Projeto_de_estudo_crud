@@ -1,24 +1,16 @@
-.main{
-    display: flex;
-    justify-items: center;
-    justify-content: center;
-}
-
-h1{
-    margin: 10px;
-}
-p{
-    position: relative;
+.add_user{
     display: flex;
     justify-content: center;
+    
 }
 
-.add {
+.add_user form{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
 }
 
-.remove {
+.user_list{
     display: flex;
     justify-content: center;
 }

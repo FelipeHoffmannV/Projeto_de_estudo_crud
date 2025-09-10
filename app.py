@@ -1,38 +1,42 @@
-from flask import Flask, redirect, render_template, flash, request
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-
-users = []
-
 user_id = 1
-
+usuarios = []
+'''Endpoit Index'''
 @app.route('/')
-def index():
-    return render_template("index.html")
+def index_():
+    return render_template('index.html')
 
+'''Endpoint add usuario'''
 @app.route('/add', methods=['POST'])
-def add_user():
+def add_user_():
     global user_id
     user = {}
     if request.method == 'POST':
         user['id'] = user_id
-        user['nome'] = request.form['nome']
+        user['nome'] = request.form['name']
         user['email'] = request.form['email']
-        users.append(user.copy())
+        usuarios.append(user.copy())
         user_id += 1
-    return render_template('index.html', users=users)
+    return render_template('listar.html', usuarios=usuarios)
+
+@app.route('/listar')
+def listar_():
+    return render_template('listar.html')
+
+@app.route('/del')
+def del_():
+    return render_template('delete.html')
 
 @app.route('/delete/<int:id>')
-def remove_user(id):
-    global users
-    users = [u for u in users if u['id'] != id]
-    return render_template('index.html', users=users)
-    
+def delete_(id):
+    global usuarios
+    usuarios = [u for u in usuarios if u['id'] != id]
+    return render_template('delete.html', usuarios=usuarios)
 
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
 
 

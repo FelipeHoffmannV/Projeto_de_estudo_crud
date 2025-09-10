@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+    <div class="delete_user">
+               <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in usuarios %}  
+    <tr>
+        <th scope="row">{{ user.id }}</th>
+        <td>{{ user.nome }}</td>
+        <td>{{ user.email }}</td>
+        <td><a class="btn btn-danger" type="submit" href="/delete">Deletar usuario</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    </div>
+
+{% endblock %}
